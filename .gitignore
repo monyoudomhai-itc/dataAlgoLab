@@ -1,4 +1,10 @@
+# ignore executables
+*.exe
 *.out
+
+# ignore files without extension like prac1, task1
 prac[0-9]*
-test/
-task[0-9]*
+task[0-9]
+
+# but keep source code
+!*.cpp
