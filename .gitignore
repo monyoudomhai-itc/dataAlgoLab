@@ -1,0 +1,4 @@
+*.out
+prac[0-9]*
+test/
+task[0-9]*
