@@ -21,8 +21,12 @@ int min(int a[],int n)
 int main()
 {
     int a[] = {13,25,33,43,145,5,7};
-
-    cout<<"Minimum of all elements : "<<min(a,6);
+    cout<<"List all element in array : ";
+    for(int i = 0;i<7;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"\nMinimum of all elements : "<<min(a,6);
     cout<<endl;
     return 0;
 }
