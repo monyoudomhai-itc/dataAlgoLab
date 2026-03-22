@@ -2,7 +2,7 @@
 using namespace std;
 
 void star(int n)
-{
+{ 
     if(n == 0){return ;}
     cout<<"*";
     star(n-1);

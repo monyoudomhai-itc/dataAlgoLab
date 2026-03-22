@@ -1,43 +1,69 @@
 #include <iostream>
 using namespace std;
-void star(int n)
+
+int sum(int num)
 {
-    if (n == 0)
-    {
-        return;
+    if (num == 0){return 0;}
+    if(num % 2 != 0){
+    return num+sum(num-1);
     }
-    cout<<"*";
-    star(n-1);
+    else {
+        return sum(num-1);
+    }
 }
-void disNum(int n)
+int power(int m ,int n)
 {
-    if (n == 0){return;}
-    cout<<n<<" ";
-    disNum(n-1);
+    if(n == 0){return 1;}
+
+    return m*power(m,n-1);
+}
+int sumSq(int n)
+{
+    if (n == 0){return 0;}
+     return n*n + sumSq(n-1);
+}
+int sumDe(int n)
+{
+    if(n == 0)
+    {
+        return 0; 
+    }
+    return (n%10)+sumDe(n/10);
 }
 int main()
 {
-    int choice = 3,n;
-    while (choice!= 0)
+    int choice = 1,n, m;
+    while (choice != 0)
     {
-    cout<<"--- Welcome to our program ---\n";
-    cout<<"1. Display n star (*)\n2.Display number from n to 1\n";
-    cout<<"0. Exit\nchoice : ";cin>>choice;
-    if(choice ==0){cout<<"\t Exit program ...\n";}
-    else if (choice == 1)
-    {
-        cout<<"--- Display n star ---\nEnter n : ";
-        cin>>n;
-        star(n);
-        cout<<endl;
+        cout<<"\tWelcome to our program\n";
+        cout<<"1.power m^n\n2.summation 1^2 + 2^2 + .. +n^2\n";
+        cout<<"3.sum digit of number \n";
+        cout<<"0. Exit \n";
+        cin>>choice; 
+        switch (choice)
+        {
+        case 0:
+            cout<<"Exit program..."<<endl;
+            break;
+        case 1:
+            cout<<"--- Calculate m^n----\n";
+            cout<<"Input m : ";cin>>m;
+            cout<<"Input n : ";cin>>n;
+            cout<<"Result : "<<power(m, n)<<endl;
+            break;
+        case 2:
+            cout<<"--- Summation 1^2 + 2^2 + .. +n^2\n";
+            cout<<"Input n : ";cin>>n;
+            cout<<"Result : "<<sumSq(n)<<endl;
+            break;
+        case 3:
+            cout<<"--- Sum the digits of number ---"<<endl;
+            cout<<"Input n : ";cin>>n;
+            cout<<"Result : "<<sumDe(n)<<endl;
+            break;
+        default:
+            cout<<"Invalid choice\n";
+            break;
+        }
     }
-    else if (choice == 2)
-    {
-        cout<<"--- Display number from n to 1 ---\nEnter n : ";
-        cin>>n;
-        disNum(n);
-        cout<<endl;
-    }
-    }
-    return 0;
 }

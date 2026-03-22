@@ -1,32 +1,43 @@
 #include <iostream>
 using namespace std;
-
-int min(int a[],int n)
-{   
-    
-    if(n == 0)
+void star(int n)
+{
+    if (n == 0)
     {
-        return a[n];
+        return;
     }
-    int numMin = min(a,n-1);
-    if(a[n]<numMin)
-    {
-        return a[n];
-    }
-    else 
-    {
-        return numMin;
-    }
+    cout<<"*";
+    star(n-1);
+}
+void disNum(int n)
+{
+    if (n == 0){return;}
+    cout<<n<<" ";
+    disNum(n-1);
 }
 int main()
 {
-    int a[] = {13,25,33,43,145,5,7};
-    cout<<"List all element in array : ";
-    for(int i = 0;i<7;i++)
+    int choice = 3,n;
+    while (choice!= 0)
     {
-        cout<<a[i]<<" ";
+    cout<<"--- Welcome to our program ---\n";
+    cout<<"1. Display n star (*)\n2.Display number from n to 1\n";
+    cout<<"0. Exit\nchoice : ";cin>>choice;
+    if(choice ==0){cout<<"\t Exit program ...\n";}
+    else if (choice == 1)
+    {
+        cout<<"--- Display n star ---\nEnter n : ";
+        cin>>n;
+        star(n);
+        cout<<endl;
     }
-    cout<<"\nMinimum of all elements : "<<min(a,6);
-    cout<<endl;
+    else if (choice == 2)
+    {
+        cout<<"--- Display number from n to 1 ---\nEnter n : ";
+        cin>>n;
+        disNum(n);
+        cout<<endl;
+    }
+    }
     return 0;
 }
